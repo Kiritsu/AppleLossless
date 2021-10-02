@@ -35,7 +35,7 @@ namespace AppleLossless
             var chunks = _files.Chunk(chunkSize);
             _logger.LogInformation("Splitting job into {Count} chunks of {Size} size", chunks.Count(), chunkSize);
 
-            var maxMs = 0l;
+            var maxMs = 0L;
             var i = 0;
             foreach (var chunk in chunks)
             {
@@ -65,6 +65,12 @@ namespace AppleLossless
                         }
 
                         destinationName = destinationName.Replace(currentExtension, destinationExtension);
+
+                        if (File.Exists(destinationName))
+                        {
+                            _logger.LogWarning("The file at path {Path} already exist. Ignoring it", fileInfo.FullName);
+                            return;
+                        }
 
                         Directory.CreateDirectory(Path.GetDirectoryName(destinationName)!);
 
