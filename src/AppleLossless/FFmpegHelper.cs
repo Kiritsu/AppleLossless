@@ -82,7 +82,7 @@ namespace AppleLossless
             var process = Process.Start(new ProcessStartInfo
             {
                 FileName = _ffmpeg.FullName,
-                Arguments = $"-hide_banner -loglevel error -i \"{fileInfo.FullName}\" -map a:0 -acodec alac \"{destinationName}\""
+                Arguments = $"-hide_banner -loglevel error -i \"{fileInfo.FullName}\" -acodec alac \"{destinationName}\""
             });
 
             await process!.WaitForExitAsync(token);
