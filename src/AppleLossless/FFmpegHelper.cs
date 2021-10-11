@@ -1,6 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using System.Diagnostics;
-using System.IO;
+﻿using System.Diagnostics;
+using Microsoft.Extensions.Logging;
 
 namespace AppleLossless
 {
@@ -32,7 +31,6 @@ namespace AppleLossless
 
             var chunks = _files.Chunk(chunkSize);
             _logger.LogInformation("Splitting job into {Count} chunks of {Size} size", chunks.Count(), chunkSize);
-
 
             var sw = Stopwatch.StartNew();
             var tasks = chunks.Select((chunk, index) => ProcessChunkAsync(chunk, index, token));
