@@ -1,4 +1,6 @@
-﻿namespace AppleLossless
+﻿using System;
+
+namespace AppleLossless
 {
     internal static class ConsoleHelper
     {
