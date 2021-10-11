@@ -77,7 +77,6 @@ namespace AppleLossless
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            _ffmpeg?.Dispose();
             return Task.CompletedTask;
         }
 
